@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(STUDENT)
+  Materi    Materi[]
+  createdAt DateTime @default(now())
+}
+
+model Materi {
+  id        String   @id @default(uuid())
+  title     String
+  desc      String
+  fileUrl   String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  DONOR
+  STUDENT
+  ADMIN
+}

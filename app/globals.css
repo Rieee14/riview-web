@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
+/* =========================
+   EDUCARE DESIGN SYSTEM
+========================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --edu-primary: #4f46e5;        /* Calm Indigo */
+  --edu-primary-soft: #eef2ff;
+  --edu-secondary: #10b981;      /* Soft Emerald */
+  --edu-bg: #f9fafb;             /* Cloud White */
+  --edu-section: #f1f5f9;        /* Light Section */
+  --edu-text: #0f172a;           /* Charcoal */
+  --edu-muted: #64748b;          /* Muted Gray */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================
+   GLOBAL BASE
+========================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--edu-bg);
+  color: var(--edu-text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
 }
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1, h2, h3, h4 {
+  color: var(--edu-text);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--edu-muted);
+}
+
+/* =========================
+   BUTTON SYSTEM
+========================= */
+
+.btn-primary {
+  background: var(--edu-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  transition: 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: var(--edu-secondary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  transition: 0.2s;
+}
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   CARD SYSTEM
+========================= */
+
+.edu-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: 0.2s;
+}
+.edu-card:hover {
+  background: var(--edu-section);
+}
+
+/* =========================
+   INPUT SYSTEM
+========================= */
+
+.edu-input {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+.edu-input:focus {
+  outline: none;
+  border-color: var(--edu-primary);
+}
+
+/* =========================
+   TEXT HELPERS
+========================= */
+
+.text-primary { color: var(--edu-primary); }
+.text-secondary { color: var(--edu-secondary); }
+.text-muted { color: var(--edu-muted); }
+
+.bg-primary { background: var(--edu-primary); }
+.bg-primary-soft { background: var(--edu-primary-soft); }
+.bg-section { background: var(--edu-section); }
